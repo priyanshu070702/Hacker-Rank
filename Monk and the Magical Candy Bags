@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+		int n,k;
+		cin>>n>>k;
+		multiset<long long>s;
+		for(int i=0;i<n;i++){
+			long long candy;
+			cin>>candy;
+			s.insert(candy);
+		}
+		long long total=0;
+		for(int i=0;i<k;i++){
+			auto it = s.end();
+			it--;
+			long long candy = *it;
+			total+=candy;
+			s.erase(it);
+			s.insert(candy/2);
+		}
+		cout<<total<<endl;
+	}
+}
+
+link-https://www.hackerearth.com/practice/data-structures/trees/heapspriority-queues/practice-problems/algorithm/monk-and-the-magical-candy-bags/
